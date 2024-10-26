@@ -1,6 +1,6 @@
-import React, {useEffect, useState, useRef, useMemo} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useLocation } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 // codemirror components
 import { useCodeMirror } from '@uiw/react-codemirror';
 
@@ -28,7 +28,7 @@ var qs = require('qs');
 const Editor = ({ sendHandler, roomId, onCodeChange, code, lang }) => {
     const history = useLocation()
     const location = useLocation()
-    const uname = location?.state?.username
+    // const uname = location?.state?.username
     const [theme, setTheme] = useState(githubDark);
     // const [code, se==1ode] = useState(code);
     const [selectValue, setSelectValue] = useState('javascript')
@@ -36,7 +36,7 @@ const Editor = ({ sendHandler, roomId, onCodeChange, code, lang }) => {
     const [placeholder, setPlaceholder] = useState('Please enter the code.');
     const [input, setInput] = useState('')
     const [output, setOutput] = useState('')
-    const [ran, setran] = useState(false)
+    // const [ran, setran] = useState(false)
     const [tc,setTc] = useState(true)
     const thememap = new Map()
     const langnMap = new Map()
@@ -104,8 +104,8 @@ const Editor = ({ sendHandler, roomId, onCodeChange, code, lang }) => {
     langInit()
 
     function langCode(e) {
-        if(e=='javascript') return 'js';
-        else if(e=='python') return 'py';
+        if(e==='javascript') return 'js';
+        else if(e==='python') return 'py';
         return e;
     }
 
@@ -121,7 +121,7 @@ const Editor = ({ sendHandler, roomId, onCodeChange, code, lang }) => {
     },[editorRef.current])
 
     useEffect(() => {
-        if(lang!=selectValue && lang) {
+        if(lang!==selectValue && lang) {
             setSelectValue(lang)
             setExtensions([langnMap.get(lang)()]);
         }
@@ -144,7 +144,7 @@ const Editor = ({ sendHandler, roomId, onCodeChange, code, lang }) => {
         fetch('https://api.codex.jaagrav.in',config)
         .then(res => res.json())
         .then(data => {
-            if(data['error'].length==0) {
+            if(data['error'].length===0) {
                 setTc(true)
                 toast.success("compiled sucessfully")
                 setOutput(data['output'])

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 const serverLink = process.env.REACT_APP_BACKEND_URI
 const Slides = () => {
     let local_Data = localStorage.getItem('slides')
-    const [data, setData] = useState(local_Data!=undefined ? JSON.parse(local_Data) : [])
+    const [data, setData] = useState(local_Data!==undefined ? JSON.parse(local_Data) : [])
 
     useEffect(() => {
         async function fetchData() {
@@ -32,7 +32,7 @@ const Slides = () => {
             <div className='cen-container l-shadow lcentral mt-5 '>
                 <Carousel>
                 {   
-                    data.map((item, index) => (
+                    data?.map((item, index) => (
                         
                         <Carousel.Item key={index} interval={500}>
                             <div key={index} className='f-height'>

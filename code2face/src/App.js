@@ -13,7 +13,6 @@ import Slides from './pages/slides';
 import AddSlides from './pages/addSlides';
 import PeerCall from './pages/peerCall';
 import Motivation from './pages/motivation';
-import Features from './pages/features';
 import Footer from './components/footer';
 
 export const UserContext = createContext();
@@ -46,6 +45,9 @@ function App() {
                                 {/* <Route exact path='/features' element={<Features />} /> */}
                                 <Route path="*" element={<NotFound/>} />
                         </Routes>
+                    </div>
+                    <div>
+                        <Footer />
                     </div>
 		        </div>
                      

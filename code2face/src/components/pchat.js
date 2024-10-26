@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import { Form } from 'react-bootstrap'
 
 import "../styles/chat.css"
@@ -12,7 +12,7 @@ const Chat = ({sendHandler, roomId, username}) => {
     }
     const handleSend = (e) => {
         e.preventDefault();
-        if(msg.length==0) return;
+        if(msg.length===0) return;
         sendHandler(2,{username, msg})
         addSendMsg(msg)
         setmsg('')

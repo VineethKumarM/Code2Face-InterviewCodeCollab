@@ -6,7 +6,6 @@ import toast from 'react-hot-toast'
 import copy from 'copy-to-clipboard';
 import { Carousel } from 'react-bootstrap';
 import {InfoCircleFill} from 'react-bootstrap-icons'
-import Footer from '../components/footer';
 
 const Home = () => {
     const Suid = new ShortUniqueId()
@@ -65,7 +64,7 @@ const Home = () => {
               });
             return;
         }
-        if(uname.length==0) {
+        if(uname.length===0) {
             toast.error("Name field is empty")
             return;
         }
